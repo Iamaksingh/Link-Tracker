@@ -1,6 +1,9 @@
+import dotenv from 'dotenv';
+//configure dotenv for environment variables
+dotenv.config();
+
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
 import connectDB from "./src/config/db.js";
 import healthCheckRoutes from "./src/routes/healthCheck.routes.js";
 // import linkRoutes from "./src/routes/link.routes.js";
@@ -9,8 +12,6 @@ import healthCheckRoutes from "./src/routes/healthCheck.routes.js";
 //defining the port
 const PORT = process.env.PORT || 5000;
 
-//configure dotenv for environment variables
-dotenv.config();
 
 //make an express app
 const app = express();
@@ -28,6 +29,6 @@ app.use(express.json());
 //use health check routes
 app.use("/health", healthCheckRoutes);
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(PORT, () => {
   console.log("Server running on port " + PORT);
 });
