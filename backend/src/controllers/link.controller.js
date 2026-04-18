@@ -88,6 +88,7 @@ const getUserLinks = async (req, res) => {
     try {
         const links = await Link.find({ userId: req.user._id }).sort({ createdAt: -1 });
         const data = links.map(link => ({
+            _id: link._id,
             originalUrl: link.originalUrl,
             shortCode: link.shortCode,
             shortUrl: `${req.protocol}://${req.get("host")}/${link.shortCode}`,
