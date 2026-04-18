@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
-//create a click event schema to store the click events for each link
-const clickSchema = new mongoose.Schema({
+const clickSchema = new mongoose.Schema({   //create a click event schema to store the click events for each link
 	linkId: {
 		type: mongoose.Schema.Types.ObjectId,  //the id of the link that was clicked
 		ref: "Link",  //reference to the link that was clicked
