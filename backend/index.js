@@ -7,7 +7,7 @@ import cors from 'cors';
 import connectDB from "./src/config/db.js";
 
 import healthCheckRoutes from "./src/routes/healthCheck.routes.js";
-
+import authRoutes from "./src/routes/auth.routes.js";
 import linkRoutes from "./src/routes/link.routes.js";
 import {redirectLink} from "./src/controllers/link.controller.js";
 
@@ -24,7 +24,10 @@ app.use(express.json());
 //use health check routes
 app.use("/health", healthCheckRoutes);
 
-//use link routes to create short code
+//use auth routes
+app.use("/api/auth", authRoutes);
+
+//use link routes 
 app.use("/api/links", linkRoutes);
 
 //define route for redirecting to the original URL when a short URL is accessed
